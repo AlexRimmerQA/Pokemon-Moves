@@ -1,7 +1,6 @@
 "use strict";
 
 let moveDamages = {};
-getTypes();
 
 function getTypes() {
 	let typeReqURL = "http://pokeapi.co/api/v2/type/";
@@ -57,3 +56,5 @@ function calcDamageMult() {
 		document.getElementById("resultsLabel").innerHTML = " does 1x damage";
 	}
 }
+
+getTypes();
