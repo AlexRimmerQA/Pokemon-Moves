@@ -38,7 +38,7 @@ function getTypes() {
 				document.getElementById("pokeType").innerHTML += `<option value="${types.results[i].name}">${types.results[i].name}</option>`;
 			};
 		}
-	}
+	};
 }
 
 function calcDamageMult() {
