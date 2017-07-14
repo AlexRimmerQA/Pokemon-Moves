@@ -1,45 +1,13 @@
 "use strict";
 
-//BREAK IN CASE OF EMERGENCY
-/*
-
-/*
-let moveDamages = {
-	"normal":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"fire":		{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"water":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"electric":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"grass":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"ice":		{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"fighting":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"poison"	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"ground":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"flying":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"psychic":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"bug":		{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"rock":		{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"ghost":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"dragon":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"dark":		{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"steel":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0},
-	"fairy":	{"normal":1.0,"fire":1.0,"water":1.0,"electric":1.0,"grass":1.0,"ice":1.0,"fighting":1.0,"poison":1.0,"ground":1.0,"flying":1.0,"psychic":1.0,"bug":1.0,"rock":0.5,"ghost":0.0,"dragon":1.0,"dark":1.0,"steel":0.5,"fairy":1.0}
-}
-*/
-
-//Types: http://pokeapi.co/api/v2/type/
-//Specific Type with damage multipliers: http://pokeapi.co/api/v2/type/1/
-
-//https://stackoverflow.com/questions/22539815/arent-promises-just-callbacks!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 let moveDamages = {};
 getTypes();
-
 
 function getTypes() {
 	let typeReqURL = "http://pokeapi.co/api/v2/type/";
 	let typeReq = new XMLHttpRequest();
-	typeReq.open('GET', typeReqURL);
-	typeReq.responseType = 'json';
+	typeReq.open("GET", typeReqURL);
+	typeReq.responseType = "json";
 	typeReq.send();
 	
 	// List of all the types
@@ -49,8 +17,8 @@ function getTypes() {
 			let typeURL = types.results[i].url;
 			moveDamages[types.results[i].name] = {};
 			let specificReq = new XMLHttpRequest();
-			specificReq.open('GET', typeURL.replace(/\\\//g, "/"));
-			specificReq.responseType = 'json';
+			specificReq.open("GET", typeURL.replace(/\\\//g, "/"));
+			specificReq.responseType = "json";
 			specificReq.send();
 			
 			//List of the attributes of a specific type
