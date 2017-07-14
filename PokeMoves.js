@@ -25,7 +25,6 @@ function getTypes() {
 				
 				let damageRelations = specificReq.response.damage_relations;
 				
-				console.log(types.results[i].name);
 				for(let j = 0; j < damageRelations.half_damage_to.length; j++) {
 					moveDamages[types.results[i].name][damageRelations.half_damage_to[j].name] = "0.5";
 				}
