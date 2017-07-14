@@ -28,19 +28,16 @@ function getTypes() {
 				console.log(types.results[i].name);
 				for(let j = 0; j < damageRelations.half_damage_to.length; j++) {
 					moveDamages[types.results[i].name][damageRelations.half_damage_to[j].name] = "0.5";
-					console.log("Half Damage To: " + damageRelations.half_damage_to[j].name);
 				}
 				for(let j = 0; j < damageRelations.no_damage_to.length; j++) {
 					moveDamages[types.results[i].name][damageRelations.no_damage_to[j].name] = "0.0";
-					console.log("No Damage To: " + damageRelations.no_damage_to[j].name);
 				}
 				for(let j = 0; j < damageRelations.double_damage_to.length; j++) {
 					moveDamages[types.results[i].name][damageRelations.double_damage_to[j].name] = "2.0";
-					console.log("Double Damage To: " + damageRelations.double_damage_to[j].name);
 				}
 				document.getElementById("moveType").innerHTML += `<option value="${types.results[i].name}">${types.results[i].name}</option>`;
 				document.getElementById("pokeType").innerHTML += `<option value="${types.results[i].name}">${types.results[i].name}</option>`;
-			}
+			};
 		}
 	}
 }
