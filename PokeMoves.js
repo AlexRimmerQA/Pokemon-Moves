@@ -55,15 +55,21 @@ function getTypes() {
 			
 			//List of the attributes of a specific type
 			specificReq.onload = function() {
+				
 				let damageRelations = specificReq.response.damage_relations;
+				
+				console.log(types.results[i].name);
 				for(let j = 0; j < damageRelations.half_damage_to.length; j++) {
-					moveDamages[types.results[i].name][damageRelations.half_damage_to[j].name] = 0.5;
+					moveDamages[types.results[i].name][damageRelations.half_damage_to[j].name] = "0.5";
+					console.log("Half Damage To: " + damageRelations.half_damage_to[j].name);
 				}
 				for(let j = 0; j < damageRelations.no_damage_to.length; j++) {
-					moveDamages[types.results[i].name][damageRelations.no_damage_to[j].name] = 0.0;
+					moveDamages[types.results[i].name][damageRelations.no_damage_to[j].name] = "0.0";
+					console.log("No Damage To: " + damageRelations.no_damage_to[j].name);
 				}
-				for(let j = 0; i < damageRelations.double_damage_to.length; j++) {
-					moveDamages[types.results[i].name][damageRelations.double_damage_to[j].name] = 2.0;
+				for(let j = 0; j < damageRelations.double_damage_to.length; j++) {
+					moveDamages[types.results[i].name][damageRelations.double_damage_to[j].name] = "2.0";
+					console.log("Double Damage To: " + damageRelations.double_damage_to[j].name);
 				}
 				document.getElementById("moveType").innerHTML += `<option value="${types.results[i].name}">${types.results[i].name}</option>`;
 				document.getElementById("pokeType").innerHTML += `<option value="${types.results[i].name}">${types.results[i].name}</option>`;
@@ -73,8 +79,13 @@ function getTypes() {
 }
 
 function calcDamageMult() {
-	let moveType = document.getElementById("moveType");
-	let pokeType = document.getElementById("pokeType");
+	let moveType = document.getElementById("moveType").value;
+	let pokeType = document.getElementById("pokeType").value;
 	let damageMult = moveDamages[moveType][pokeType];
-	document.getElementById("resultsLabel").innerHTML = " does " + damageMult + "x damage";
+	if(moveDamages[moveType][pokeType]) {
+		document.getElementById("resultsLabel").innerHTML = " does " + damageMult + "x damage";
+	}
+	else {
+		document.getElementById("resultsLabel").innerHTML = " does 1x damage";
+	}
 }
